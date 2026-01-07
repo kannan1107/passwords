@@ -23,7 +23,7 @@ const user = useSelector((state) => state.auth.user);
 useEffect(() => {
   if(user) {
     setData({...defaultState})
-    navigate("/");
+    navigate("/home");
   }
 }, [user, navigate]);
 
