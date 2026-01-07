@@ -14,7 +14,11 @@ function Restartpassword() {
       alert("Password reset email sent successfully");
     } catch (error) {
       console.error('Error resetting password:', error);
-      alert("Invalid email or error resetting password");
+      if (error.status === 404) {
+        alert("Server endpoint not found. Please check if the backend server is running.");
+      } else {
+        alert("Invalid email or error resetting password");
+      }
     }
   };
 

@@ -24,7 +24,7 @@ export const appApi = createApi({
     // Define your endpoints here
     register: builder.mutation({
       query: (payload) => ({
-        url: "/users",
+        url: "/create-user",
         method: "POST",
         body: payload,
       }),
