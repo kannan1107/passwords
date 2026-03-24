@@ -1,7 +1,7 @@
 import { useForgetPasswordMutation } from "../features/ApplicationApi";
 
 
-function Restartpassword() {
+function RestartPassword() {
   const [forgetPassword, { isLoading }] = useForgetPasswordMutation();
 
   // password restart
@@ -57,4 +57,4 @@ function Restartpassword() {
   );
 }
 
-export default Restartpassword;
+export default RestartPassword;

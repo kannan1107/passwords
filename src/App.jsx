@@ -5,7 +5,9 @@ import Navbar from './component/Navbar.jsx'
 import Home from './component/Home.jsx'
 import Login from './component/Login.jsx'
 import Signup from './component/Signup.jsx'
-import Restartpassword from './component/restartPassword.jsx'
+import RestartPassword from './component/restartPassword.jsx'
+import UpdatePassword from './component/updatePassword.jsx'
+
 
 
 
@@ -22,7 +24,9 @@ function App() {
         {/* <Route path="/contact" element={<Contact/>} /> */}
        
         <Route path="/signup" element={<Signup/>} />
-        <Route path="/restartpassword" element={<Restartpassword/>} />
+        <Route path="/restartpassword" element={<RestartPassword/>} />
+        <Route path="*" element={"404 Not Found"} />
+        <Route path='updatePassword' element={<UpdatePassword/>} />
       </Routes>
     </BrowserRouter>
      
