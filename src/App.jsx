@@ -24,7 +24,7 @@ function App() {
         {/* <Route path="/contact" element={<Contact/>} /> */}
        
         <Route path="/signup" element={<Signup/>} />
-        <Route path="/restartpassword" element={<RestartPassword/>} />
+       <Route path="/restartpassword" element={<RestartPassword/>} />
         <Route path="*" element={"404 Not Found"} />
         <Route path='updatepassword' element={<UpdatePassword/>} />
       </Routes>
