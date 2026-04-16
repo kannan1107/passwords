@@ -5,7 +5,7 @@ import Navbar from './component/Navbar.jsx'
 import Home from './component/Home.jsx'
 import Login from './component/Login.jsx'
 import Signup from './component/Signup.jsx'
-import RestartPassword from './component/restartPassword.jsx'
+import RestartPassword from './component/RestartPassword.jsx'x'
 import UpdatePassword from './component/updatePassword.jsx'
 
 
