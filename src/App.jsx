@@ -26,7 +26,7 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/restartpassword" element={<RestartPassword/>} />
         <Route path="*" element={"404 Not Found"} />
-        <Route path='updatePassword' element={<UpdatePassword/>} />
+        <Route path='updatepassword' element={<UpdatePassword/>} />
       </Routes>
     </BrowserRouter>
      
