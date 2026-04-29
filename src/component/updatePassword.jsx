@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useUpdatePasswordMutation } from "../features/ApplicationApi";
 
- function UpdatePassword() {
+function UpdatePassword() {
+  const user = useSelector((state) => state.auth.user);
+  const [updatePassword, { isLoading }] = useUpdatePasswordMutation();
   const [formData, setFormData] = useState({
-    email: "",
+    email: user?.email || "",
     password: "",
     confirmPassword: "",
   });
@@ -17,7 +21,7 @@ import React, { useState } from "react";
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
@@ -25,20 +29,37 @@ import React, { useState } from "react";
       return;
     }
 
-    // Simulate API call
-    setTimeout(() => {
-      setMessage("Password successfully reset!");
-    }, 1000);
+    try {
+      const response = await updatePassword({
+        email: formData.email,
+        password: formData.password,
+      }).unwrap();
+
+      setMessage(response?.message || "Password successfully updated!");
+      setFormData((state) => ({
+        ...state,
+        password: "",
+        confirmPassword: "",
+      }));
+    } catch (error) {
+      setMessage(
+        error?.data?.message || error?.message || "Unable to update password."
+      );
+    }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-          Reset Password
+          Update Password
         </h2>
 
-        <div className="mb-4 text-center text-sm text-red-500">{message}</div>
+        {message && (
+          <div className="mb-4 text-center text-sm text-red-500">
+            {message}
+          </div>
+        )}
     
 
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -98,9 +119,10 @@ import React, { useState } from "react";
 
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+        disabled={isLoading}
+        className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300 disabled:opacity-50"
       >
-        Reset Password
+        {isLoading ? "Updating..." : "Update Password"}
       </button>
     </form>
   </div>
