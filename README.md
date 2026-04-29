@@ -22,6 +22,21 @@ A React-based password manager application with user authentication and user man
 - User-friendly forms
 - Modern styling with Tailwind CSS
 
+### UI Page Or Functions
+
+### Forget password page
+
+  - click the Forget password, I will be asking email ID
+  - if email ID true mean send the mail (reset password link) or miss match mean show the error
+    
+### Update Password
+
+  - Update password page three input field 1. email ID , 2. Password, 3. conform password, 4. password show button, 5. submit button
+    
+### Home page 
+
+    - list out the all user
+
 ---
 
 ## Tech Stack
