@@ -118,7 +118,7 @@ const handleForgotPassword = () => {
               <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900"> Remember me </label>
             </div>
             <div className="text-sm">
-              <a href="/restartpassword" className="font-medium text-blue-600 hover:text-blue-500"> Forgot your password? </a>
+              <a href="/forgot-password" className="font-medium text-blue-600 hover:text-blue-500"> Forgot your password? </a>
             </div>
           </div>
           <button 
