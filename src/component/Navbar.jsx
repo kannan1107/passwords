@@ -30,6 +30,7 @@ function Navbar() {
           {!isAuthenticated ? (
             <>
               <li><Link to="/" className="hover:underline">Login</Link></li>
+              
               <li><Link to="/signup" className="hover:underline">Sign Up</Link></li>
             </>
           ) : (
