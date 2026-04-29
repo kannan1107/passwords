@@ -101,6 +101,13 @@ export const appApi = createApi({
         body: { password },
       }),
     }),
+    updatePassword: builder.mutation({
+      query: (payload) => ({
+        url: "/update-password",
+        method: "put",
+        body: payload,
+      }),
+    }),
 
   }),
 });
@@ -114,4 +121,5 @@ export const {
   useDeleteUserMutation,
   useForgetPasswordMutation,
   useResetPasswordMutation,
+  useUpdatePasswordMutation,
 } = appApi;
