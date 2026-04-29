@@ -93,6 +93,15 @@ export const appApi = createApi({
         body: payload,
       }),
     }),
+    // Add reset password endpoint if needed
+    resetPassword: builder.mutation({
+      query: ({ id, token, password }) => ({
+        url: id && token ? `/reset-password/${id}/${token}` : "/reset-password",
+        method: "POST",
+        body: { password },
+      }),
+    }),
+
   }),
 });
 
@@ -104,4 +113,5 @@ export const {
   useUpdateUserMutation,
   useDeleteUserMutation,
   useForgetPasswordMutation,
+  useResetPasswordMutation,
 } = appApi;
