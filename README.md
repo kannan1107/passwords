@@ -35,7 +35,7 @@ A React-based password manager application with user authentication and user man
     
 ### Home page 
 
-    - list out the all user
+  - list out the all user
 
 ---
 
