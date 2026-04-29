@@ -23,6 +23,8 @@ function Navbar() {
           {isAuthenticated && (
             <>
               <li><Link to="/home" className="hover:underline">Home</Link></li>
+               <li><Link to="/updatePassword" className="hover:underline">Update Password</Link></li>
+
               <li><Link to="/about" className="hover:underline">About</Link></li>
               <li><Link to="/contact" className="hover:underline">Contact</Link></li>
             </>
