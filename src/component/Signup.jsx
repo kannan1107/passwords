@@ -34,7 +34,7 @@ function Signup() {
         if (error.status === 404 || error.originalStatus === 404) {
           alert('Server endpoint not found. Please check if the backend server is running and has the /users endpoint.');
         } else {
-          alert('Failed to create user. Please try again.');
+          alert('try to another email id  .');
         }
       });
   };
