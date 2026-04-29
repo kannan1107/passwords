@@ -6,6 +6,7 @@ function ResetPassword() {
   const navigate = useNavigate();
   const [resetPassword, { isLoading }] = useResetPasswordMutation();
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -14,12 +15,21 @@ function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (password !== confirmPassword) {
+      setMessage("");
+      setError("Passwords do not match.");
+      setPassword("");
+      setConfirmPassword("");
+      return;
+    }
+
     try {
       const response = await resetPassword({ id, token, password }).unwrap();
 
       setMessage(response?.message || "Password updated successfully.");
       setError("");
       setPassword("");
+      setConfirmPassword("");
       setTimeout(() => navigate("/"), 1200);
     } catch (err) {
       setMessage("");
@@ -58,6 +68,23 @@ function ResetPassword() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter Your Password"
+            required
+          />
+          <label
+            className="block font-bold mb-2 font-serif"
+            htmlFor="confirmPassword"
+          >
+            Confirm Password
+          </label>
+          <input
+            className="w-full p-2 border border-gray-300 mb-4 rounded"
+            type={showPassword ? "text" : "password"}
+            id="confirmPassword"
+            name="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder="Confirm Your Password"
+            required
           />
           <button
             type="button"
